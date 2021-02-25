@@ -21,6 +21,23 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
     padding:10,
     borderRadius:100
+  },
+  historyContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    padding:20,
+    borderBottomWidth:1,
+    borderColor:'#a3a3a3'
+  },
+  iconContainer:{
+    backgroundColor:'#b3b3b3',
+    padding:10,
+    borderRadius:25
+  },
+  destinationText:{
+    marginLeft:10,
+    fontWeight:'500',
+    fontSize:16
   }
 })
 
