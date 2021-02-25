@@ -3,6 +3,8 @@ import { View, Text } from 'react-native'
 import styles from './styles'
 import {AntDesign,MaterialIcons} from '@expo/vector-icons'
 
+
+
 export default function Search() {
   return (
     <View>
@@ -34,6 +36,7 @@ export default function Search() {
         <Text style={styles.destinationText}>Home</Text>
       </View>
 
+     
 
     </View>
   )
