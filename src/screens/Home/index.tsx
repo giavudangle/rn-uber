@@ -1,5 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import CovidMessage from '../../components/CovidMessage'
+import HomeMap from '../../components/HomeMap'
+import HomeSearch from '../../components/HomeSearch'
 
 type HomeProps = {
 
@@ -7,13 +10,10 @@ type HomeProps = {
 
 export default function HomeScreen(props : HomeProps) {
   return (
-    <View style={{
-      height:300,
-      backgroundColor:'#3edafc',
-      justifyContent:'center',
-      alignItems:'center'
-    }}>
-      <Text>Home Screen</Text>
+    <View> 
+      <HomeMap/>
+      {/* <CovidMessage/>
+      <HomeSearch/> */}
     </View>
   )
 }
