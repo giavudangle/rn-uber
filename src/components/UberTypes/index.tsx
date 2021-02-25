@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text,Pressable } from 'react-native'
+import styles from './styles'
 import UberTypeList from '../UberTypeList'
+import HomeMap from '../HomeMap'
 
 type UberTypesProps = {
   id:string,
@@ -36,34 +38,42 @@ export default function UberTypes({type}:UberTypesProps|any) {
   }
 
   return (
-    <View>
-      {
-      UberTypesData.map(type => 
-        <UberTypeList 
-        id={type.id}
-        price={type.price}
-        duration={type.duration}
-        type={type.type}/>)
-      }
+    <View style={styles.container}>
+      <View style={styles.mapContainerFlex}>
+        <HomeMap/>
+      </View>
+      
+      <View style={styles.uberTypesContainer}>
+        {
+        UberTypesData.map(type => 
+          <UberTypeList 
+          key={type.id}
+          id={type.id}
+          price={type.price}
+          duration={type.duration}
+          type={type.type}/>)
+        }
 
-      <Pressable 
-      onPress={confirmBooking} 
-      style={{
-        width:'100%',
-        backgroundColor:'black',
-        padding:10,
-        margin:10,
-        alignItems:'center'
-      }}
-      >
-        <Text
-         style={{
-           color:'#fff',
-           fontWeight:'bold'
-         }}>
-          Booking
-        </Text>
-      </Pressable>
+        <Pressable 
+        onPress={confirmBooking} 
+        style={{
+          width:'80%',
+          backgroundColor:'black',
+          padding:10,
+          margin:20,
+          alignSelf:'center'
+        }}
+        >
+          <Text
+          style={{
+            textAlign:'center',
+            color:'#fff',
+            fontWeight:'bold'
+          }}>
+            Booking
+          </Text>
+        </Pressable>
+      </View>
     </View>
   )
 }

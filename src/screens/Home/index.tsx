@@ -1,19 +1,28 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import CovidMessage from '../../components/CovidMessage'
 import HomeMap from '../../components/HomeMap'
 import HomeSearch from '../../components/HomeSearch'
 
-type HomeProps = {
+import styles from './styles';
 
-}
-
-export default function HomeScreen(props : HomeProps) {
+export default function HomeScreen() {
   return (
-    <View> 
-      <HomeMap/>
-      {/* <CovidMessage/>
-      <HomeSearch/> */}
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.mapContainer}>
+        <HomeMap />
+      </View>
+
+      <View style={styles.covidMessageContainer}>
+        <CovidMessage />
+      </View>
+
+      <View style={styles.homeSearchContainer}>
+        <HomeSearch />
+      </View>
+
+    </SafeAreaView>
   )
 }
+
+
