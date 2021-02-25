@@ -23,8 +23,8 @@ export default function UberTypeList(props : Props) {
         return require('../../assets/images/Toyota.jpeg')
       case 'Mercedes':
         return require('../../assets/images/Mercedes.jpeg')
-      case 'RollRoyces':
-        return require('../../assets/images/RollRoyces.jpeg')
+      case 'Mazda':
+        return require('../../assets/images/Mazda.jpeg')
     }
   }
 

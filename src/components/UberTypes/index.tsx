@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text,Pressable } from 'react-native'
 import UberTypeList from '../UberTypeList'
 
 type UberTypesProps = {
@@ -23,7 +23,7 @@ const UberTypesData = [
   },
   {
     id: '2',
-    type: 'RollRoyces',
+    type: 'Mazda',
     price: 360000,
     duration: 27,
   },
@@ -31,14 +31,39 @@ const UberTypesData = [
 
 
 export default function UberTypes({type}:UberTypesProps|any) {
+  const confirmBooking = () => {
+    console.warn('press');
+  }
+
   return (
     <View>
-      {UberTypesData.map(type => 
-      <UberTypeList 
-      id={type.id}
-      price={type.price}
-      duration={type.duration}
-      type={type.type}/>)}
+      {
+      UberTypesData.map(type => 
+        <UberTypeList 
+        id={type.id}
+        price={type.price}
+        duration={type.duration}
+        type={type.type}/>)
+      }
+
+      <Pressable 
+      onPress={confirmBooking} 
+      style={{
+        width:'100%',
+        backgroundColor:'black',
+        padding:10,
+        margin:10,
+        alignItems:'center'
+      }}
+      >
+        <Text
+         style={{
+           color:'#fff',
+           fontWeight:'bold'
+         }}>
+          Booking
+        </Text>
+      </Pressable>
     </View>
   )
 }
