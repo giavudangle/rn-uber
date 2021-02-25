@@ -30,6 +30,7 @@ const UberTypesData = [
     duration: 27,
   },
 ]
+  
 
 
 export default function UberTypes({type}:UberTypesProps|any) {

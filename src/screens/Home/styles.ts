@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
      flex:2/10
     },
     homeSearchContainer:{
-      flex:4/10
+      flex:4/10,
+      marginTop:-30
     }
 
 })

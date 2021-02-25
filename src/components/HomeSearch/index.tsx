@@ -36,6 +36,13 @@ export default function HomeSearch() {
         <Text style={styles.destinationText}>Home</Text>
       </View>
 
+      <View style={styles.historyContainer}>
+        <View style={[styles.iconContainer,{backgroundColor:'#2A67E1'}]}>
+          <AntDesign color='white' size={16} name='taobao-circle'/>
+        </View>
+        <Text style={styles.destinationText}>Movie Theater</Text>
+      </View>
+
      
 
     </View>
