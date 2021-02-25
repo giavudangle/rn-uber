@@ -12,7 +12,7 @@ import SearchResults from './src/screens/SearchResults';
 export default function App() {
   return (
       // <HomeScreen/>
-    <UberTypes/>
+    <SearchResults/>
   );
 }
 

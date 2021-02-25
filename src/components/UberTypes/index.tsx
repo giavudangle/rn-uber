@@ -38,12 +38,7 @@ export default function UberTypes({type}:UberTypesProps|any) {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.mapContainerFlex}>
-        <HomeMap/>
-      </View>
-      
-      <View style={styles.uberTypesContainer}>
+    <>
         {
         UberTypesData.map(type => 
           <UberTypeList 
@@ -73,7 +68,6 @@ export default function UberTypes({type}:UberTypesProps|any) {
             Booking
           </Text>
         </Pressable>
-      </View>
-    </View>
+    </>
   )
 }
