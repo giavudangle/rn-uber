@@ -6,6 +6,7 @@
 </div>
 
 ## 1.Technical specification:
+
 - Language : Typescript
 - Framework : React Native
 - 3rd party Libraries : 
@@ -34,11 +35,16 @@
 ```
 
 ## 2.Project contains the following features implemented:
-- [] Get My Profile
-- [] Request Email Verification
-- [] Complete Email Veirication
-- [] Update My Profile
-- [] Toggle Driving Mode
+
+- [X] Get current position
+- [X] Car types
+- [X] Draw routing
+- [X] Destination  
+- [ ] Get My Profile
+- [ ] Request Email Verification
+- [ ] Complete Email Veirication
+- [ ] Update My Profile
+- [ ] Toggle Driving Mode
 - [ ] Report Location / Orientation
 - [ ] Add Place
 - [ ] Edit Place
@@ -54,5 +60,5 @@
 - [ ] Send a Chat Message
 - [ ] Get Ride History
 - [ ] See Ride Detail
-- [] Generate JWT
-- [] Verify JWT
+- [ ] Generate JWT
+- [ ] Verify JWT
