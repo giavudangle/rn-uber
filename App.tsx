@@ -11,8 +11,8 @@ import SearchResults from './src/screens/SearchResults';
 
 export default function App() {
   return (
-      <HomeScreen/>
-    // <SearchResults/>
+      // <HomeScreen/>
+    <SearchResults/>
   );
 }
 

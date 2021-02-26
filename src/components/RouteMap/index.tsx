@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text,StyleSheet,Dimensions, SafeAreaView,Image,FlatList } from 'react-native'
-import MapView , {Marker} from 'react-native-maps';
+import MapView , {Marker,Polyline} from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
 
-import styles from './style'
+import styles from './styles'
 
 const mockData = [
   {
@@ -44,8 +45,8 @@ type MarkerType = {
   heading: number,
 }
 
-const getCarTop = (car:MarkerType) => {
-  switch(car.type){
+const getCarTop = (car:string) => {
+  switch(car){
     case 'Toyota':
       return require('../../assets/images/top-toyota.png')
     case 'Mercedes':
@@ -56,7 +57,20 @@ const getCarTop = (car:MarkerType) => {
 }
 
 
-export default function HomeMap() {
+export default function RouteMap() {
+
+  const origin = {
+    latitude: 10.7631399,
+    longitude: 106.632136
+  }
+  
+  const destination = {
+    latitude: 10.777911,
+    longitude: 106.656189,
+  }
+
+  const API_KEY = 'XXX';
+
   return (
     <View style={styles.container}>
       <MapView 
@@ -67,19 +81,39 @@ export default function HomeMap() {
         longitudeDelta: 0.0421,
       }}
       style={styles.map} >
-        
       
-      {mockData.map((car) => (
-        <Marker 
-          key={car.id}
-          coordinate={{latitude:car.latitude,longitude:car.longitude}}
+      {/* <MapViewDirections
+        origin={origin}
+        destination={destination}
+        apikey={API_KEY}
+      >
+
+      </MapViewDirections> */}
+
+      
+      <Marker
+        coordinate={origin}
+        title='Your location'
+      />
+       <Marker
+        coordinate={destination}
+        title='Destination'
+      />
+      <Polyline
+        coordinates={[origin,destination]}
+        strokeColor="blue"
+        strokeWidth={3}
+      />
+
+        <Marker     
+          key={100}
+          coordinate={origin}
         >
         <Image 
           style={{width:50,height:50,resizeMode:'contain'}}
-          source={getCarTop(car)}/>
+          source={getCarTop('Toyota')}/>
         </Marker>
-      ))}
-      
+     
        
       </MapView>
     </View>
