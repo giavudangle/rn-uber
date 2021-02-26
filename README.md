@@ -14,7 +14,7 @@
   - expo-location
   - react-navigation
   - react-native-maps
-=======
+
 ## 1.Packages
 
 
