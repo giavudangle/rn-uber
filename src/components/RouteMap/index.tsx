@@ -110,7 +110,14 @@ export default function RouteMap() {
           coordinate={origin}
         >
         <Image 
-          style={{width:50,height:50,resizeMode:'contain'}}
+          style={{
+            width:50,
+            height:50,
+            resizeMode:'contain',
+            transform:[{
+              rotate:'60deg'
+            }]
+          }}
           source={getCarTop('Toyota')}/>
         </Marker>
      

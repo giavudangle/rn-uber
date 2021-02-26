@@ -24,14 +24,14 @@ const mockData = [
     type: 'Mazda',
     latitude: 10.7779114,
     longitude: 106.6418975,
-    heading: 250,
+    heading: 360,
   }, 
   {
     id: '3',
     type: 'Toyota',
     latitude: 10.777911,
     longitude: 106.656189,
-    heading: 30,
+    heading: -50,
   },
 ];
 
@@ -75,7 +75,14 @@ export default function HomeMap() {
           coordinate={{latitude:car.latitude,longitude:car.longitude}}
         >
         <Image 
-          style={{width:50,height:50,resizeMode:'contain'}}
+          style={{
+            width:50,
+            height:50,
+            resizeMode:'contain',
+            transform:[{
+              rotate: `${car.heading}deg`
+            }]
+          }}
           source={getCarTop(car)}/>
         </Marker>
       ))}
