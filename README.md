@@ -1,13 +1,18 @@
 # React Native Uber Clone
 
-<div style='display:flex;flex-direction:row;justify-content:center'>
-  <img src='src/assets/md/booking.png' style="width:300px" />
-  <img src='src/assets/md/home.png' style="width:300px" />
+<div style="display:flex">
+  <img style="width:500px" src='src/assets/md/booking.png'  />
+  <img style="width:500px"src='src/assets/md/home.png' />
 </div>
 
-## 1.Packages
+## 1.Technical specification:
+- Language : Typescript
+- Framework : React Native
+- 3rd party Libraries : 
+  - expo-location
+  - react-navigation
+  - react-native-maps
 
-Start with Expo (easy to test on the real devices)
 ```
 "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/native": "^5.9.3",
@@ -28,4 +33,26 @@ Start with Expo (easy to test on the real devices)
     "react-native-web": "~0.13.12"
 ```
 
-## 2.
+## 2.Project contains the following features implemented:
+- [] Get My Profile
+- [] Request Email Verification
+- [] Complete Email Veirication
+- [] Update My Profile
+- [] Toggle Driving Mode
+- [ ] Report Location / Orientation
+- [ ] Add Place
+- [ ] Edit Place
+- [ ] Delete Place
+- [ ] See Nearby Drivers
+- [ ] Subscribe to Nearby Drivers
+- [ ] Request a Ride
+- [ ] Get Nearby Ride Requests
+- [ ] Subscribe to Nearby Ride Requests
+- [ ] Subscribe to Ride Status
+- [ ] Get Chat Room Messages
+- [ ] Subscribe to Chat Room Messages
+- [ ] Send a Chat Message
+- [ ] Get Ride History
+- [ ] See Ride Detail
+- [] Generate JWT
+- [] Verify JWT
