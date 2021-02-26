@@ -35,7 +35,10 @@ export default function DestinationSearch() {
 
   const checkNavigation = () => {
     if (originPlace && destinationPalace) {
-      navigation.navigate('SearchResults')
+      navigation.navigate('SearchResults',{
+        originPlace,
+        destinationPalace
+      })
       //console.warn('Ok to navigate');    
     }
   }
