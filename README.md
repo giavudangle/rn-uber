@@ -1,10 +1,9 @@
 # React Native Uber Clone
 
-<div style='display:flex;flex-direction:row;justify-content:center'>
-  <img src='src/assets/md/booking.png' style="width:300px" />
-  <img src='src/assets/md/home.png' style="width:300px" />
+<div style="display:flex">
+  <img style="width:500px" src='src/assets/md/booking.png'  />
+  <img style="width:500px"src='src/assets/md/home.png' />
 </div>
-
 ## 1.Packages
 
 Start with Expo (easy to test on the real devices)
