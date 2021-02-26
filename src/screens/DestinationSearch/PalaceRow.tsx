@@ -5,8 +5,7 @@ import {Entypo} from '@expo/vector-icons'
 import styles from './styles'
 
 export default function PalaceRow({data}:{data:any}) {
-  console.log('hehe');
-  
+
   return (
     <View style={styles.row}>
       <View style={styles.iconContainer}>
@@ -14,8 +13,8 @@ export default function PalaceRow({data}:{data:any}) {
           ?<Entypo name='home' size={20} color='white'/>
           :<Entypo name='location-pin' size={20} color='white'/>
         }
-        <Text style={styles.locationText}>{data.location || data.vicinity}</Text>
       </View>
+        <Text style={styles.locationText}>{data.description}</Text>
     </View>
   )
 }

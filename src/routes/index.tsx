@@ -14,7 +14,7 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Home'
+        initialRouteName='DestinationSearch'
         screenOptions={{headerShown:false}}
       >
         <Stack.Screen name={"Home"} component={Home}/>

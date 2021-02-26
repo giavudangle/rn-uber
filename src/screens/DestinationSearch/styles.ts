@@ -5,12 +5,11 @@ const styles = StyleSheet.create({
     padding: 10,
     height: '100%',
     justifyContent: 'space-around',
-    backgroundColor: 'tomato'
   },
   textInput: {
     height: 50,
     padding: 20,
-    backgroundColor: '#eee',
+    backgroundColor: '#ABD3FD',
     marginVertical: 4,
     marginHorizontal:25,
     borderRadius:50
@@ -25,10 +24,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#a2a2a2',
     padding: 10,
     borderRadius: 50,
-    marginRight: 15
+    marginRight: 15,
+    
   },
   separator: {
-    backgroundColor: 'tomato',
+    backgroundColor: '#ABD3FD',
     height: 1
   },
   listView: {
@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
     right: 10
   },
   locationText: {
-
+    fontSize:20
   },
   line:{
     width:2,
     height:50,
-    backgroundColor:'white',
+    backgroundColor:'#ABD3FD',
     position:'absolute',
     top:50,
     left:19,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   circle:{
     width:10,
     height:10,
-    backgroundColor:'white',
+    backgroundColor:'#ABD3FD',
     position:'absolute',
     top:35,
     left:15,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   square:{
     width:10,
     height:10,
-    backgroundColor:'white',
+    backgroundColor:'#ABD3FD',
     position:'absolute',
     top:105,
     left:15
