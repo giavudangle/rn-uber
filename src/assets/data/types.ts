@@ -1,4 +1,4 @@
-export default UberTypesData = [ 
+export default [ 
   {
     id: '0',
     type: 'Toyota',
