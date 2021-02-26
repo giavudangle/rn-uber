@@ -10,8 +10,11 @@ export default function PalaceRow({data}:{data:any}) {
   return (
     <View style={styles.row}>
       <View style={styles.iconContainer}>
-        <Entypo name='location-pin' size={20} color='white'/>
-        <Text style={styles.locationText}>{}</Text>
+        {data.description === 'Home'
+          ?<Entypo name='home' size={20} color='white'/>
+          :<Entypo name='location-pin' size={20} color='white'/>
+        }
+        <Text style={styles.locationText}>{data.location || data.vicinity}</Text>
       </View>
     </View>
   )

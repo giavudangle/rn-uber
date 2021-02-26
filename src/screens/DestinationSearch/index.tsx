@@ -16,11 +16,29 @@ export default function DestinationSearch() {
   useEffect(() => {
     if (originPlace && destinationPalace) {
       console.log('Redirect result');
-
     }
-
   }, [originPlace, destinationPalace]);
 
+
+  const homePalace = {
+    description : 'Home',
+    geometry :{
+      location :{
+        lat: 10.7805149,
+        lng: 106.6361969,
+      }
+    }
+  }
+
+  const workPalace = {
+    description : 'Work',
+    geometry :{
+      location :{
+        lat: 10.770626,
+        lng: 106.644996,
+      }
+    }
+  }
 
   return (
     <SafeAreaView>
@@ -32,6 +50,8 @@ export default function DestinationSearch() {
             listView: styles.listView,
             separator:styles.separator
           }}
+          currentLocation={true}
+          currentLocationLabel='Current location'
           suppressDefaultStyles
           placeholder='From'
           fetchDetails
@@ -41,10 +61,12 @@ export default function DestinationSearch() {
             setDestinationPalace({ data, details })
             console.log(data, details);
           }}
+          renderDescription={(data) => data.description || ''}
           query={{
             key: 'YOUR API KEY',
             language: 'en',
           }}
+          predefinedPlaces={[homePalace,workPalace]}
         />
 
         <GooglePlacesAutocomplete

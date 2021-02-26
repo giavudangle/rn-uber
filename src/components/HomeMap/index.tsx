@@ -60,6 +60,7 @@ export default function HomeMap() {
   return (
     <View style={styles.container}>
       <MapView 
+      showsUserLocation={true}
       initialRegion={{
         latitude: 10.7805149,
         longitude: 106.6383909,
