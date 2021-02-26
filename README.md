@@ -5,6 +5,7 @@
   <img style="width:500px"src='src/assets/md/home.png' />
 </div>
 
+
 ## 1.Technical specification:
 
 - Language : Typescript
@@ -13,6 +14,9 @@
   - expo-location
   - react-navigation
   - react-native-maps
+=======
+## 1.Packages
+
 
 ```
 "@react-native-community/masked-view": "0.1.10",
