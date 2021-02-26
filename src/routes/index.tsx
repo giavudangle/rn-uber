@@ -1,26 +1,30 @@
-import Home from '../screens/Home';
-import DestinationSearch from '../screens/DestinationSearch';
-import SearchResults from '../screens/SearchResults';
-
-import {createStackNavigator} from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+
+import HomeNavigator from './HomeNavigator';
+import CustomDrawer from './CustomDrawer';
+
+import {View,Text} from 'react-native';
+
+const Drawer = createDrawerNavigator();
 
 
-
-const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='DestinationSearch'
-        screenOptions={{headerShown:false}}
+      <Drawer.Navigator 
+      openByDefault
+      drawerContent={props => (
+        <CustomDrawer {...props}/>
+      )}
       >
-        <Stack.Screen name={"Home"} component={Home}/>
-        <Stack.Screen name={'DestinationSearch'} component={DestinationSearch}/>
-        <Stack.Screen name={'SearchResults'} component={SearchResults}/>
-      </Stack.Navigator>
+        <Drawer.Screen component={HomeNavigator} name='Home'/>
+    
+
+      </Drawer.Navigator>
+     
     </NavigationContainer>
   )
 }
