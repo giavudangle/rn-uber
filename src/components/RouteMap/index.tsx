@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text,StyleSheet,Dimensions, SafeAreaView,Image,FlatList } from 'react-native'
-import MapView , {Marker,Polyline} from 'react-native-maps';
+import { View, Text, StyleSheet, Dimensions, SafeAreaView, Image, FlatList } from 'react-native'
+import MapView, { Marker, Polyline } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import { GOOGLE_API_KEY } from '../../config';
 
 import styles from './styles'
 
@@ -12,7 +13,7 @@ const mockData = [
     latitude: 10.7805149,
     longitude: 106.6361969,
     heading: 130,
-  }, 
+  },
   {
     id: '1',
     type: 'Toyota',
@@ -26,7 +27,7 @@ const mockData = [
     latitude: 10.7779114,
     longitude: 106.6418975,
     heading: 250,
-  }, 
+  },
   {
     id: '3',
     type: 'Toyota',
@@ -37,16 +38,9 @@ const mockData = [
 ];
 
 
-type MarkerType = {
-  id:string,
-  type:string,
-  latitude:number,
-  longitude: number
-  heading: number,
-}
 
-const getCarTop = (car:string) => {
-  switch(car){
+const getCarTop = (car: string) => {
+  switch (car) {
     case 'Toyota':
       return require('../../assets/images/top-toyota.png')
     case 'Mercedes':
@@ -57,57 +51,58 @@ const getCarTop = (car:string) => {
 }
 
 
-export default function RouteMap() {
 
-  const origin = {
-    latitude: 10.7631399,
-    longitude: 106.632136
-  }
-  
-  const destination = {
-    latitude: 10.777911,
-    longitude: 106.656189,
-  }
 
-  const API_KEY = 'XXX';
+
+export default function RouteMap(props: any) {
+
+  const originCoors = props.origin.details.geometry.location;
+  const destinationCoors = props.destination.details.geometry.location;
+
+  const originLoc = {
+    latitude: originCoors.lat,
+    longitude: originCoors.lng,
+  };
+
+  const destinationLoc = {
+    latitude: destinationCoors.lat,
+    longitude: destinationCoors.lng,
+  };
+
+
 
   return (
     <View style={styles.container}>
-      <MapView 
-      initialRegion={{
-        latitude: 10.7805149,
-        longitude: 106.6383909,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-      style={styles.map} >
-      
-      {/* <MapViewDirections
-        origin={origin}
-        destination={destination}
-        apikey={API_KEY}
-      >
+      <MapView
+        initialRegion={{
+          latitude: 10.7805149,
+          longitude: 106.6383909,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        style={styles.map} >
 
-      </MapViewDirections> */}
+        <MapViewDirections
+          origin={originLoc}
+          destination={destinationLoc}
+          apikey={GOOGLE_API_KEY}
+          strokeWidth={5}
+          strokeColor="black"
+        />
 
-      
-      <Marker
-        coordinate={origin}
-        title='Your location'
-      />
-       <Marker
-        coordinate={destination}
-        title='Destination'
-      />
-      <Polyline
-        coordinates={[origin,destination]}
-        strokeColor="blue"
-        strokeWidth={3}
-      />
+
+        <Marker
+          coordinate={originLoc}
+          title='Your location'
+        />
+        <Marker
+          coordinate={destinationLoc}
+          title='Destination'
+        />
 
         <Marker     
           key={100}
-          coordinate={origin}
+          coordinate={originLoc}
         >
         <Image 
           style={{
@@ -115,13 +110,12 @@ export default function RouteMap() {
             height:50,
             resizeMode:'contain',
             transform:[{
-              rotate:'60deg'
+              rotate:'180deg'
             }]
           }}
           source={getCarTop('Toyota')}/>
         </Marker>
-     
-       
+
       </MapView>
     </View>
   )

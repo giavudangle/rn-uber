@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/core';
 import React, { useState, useEffect,useRef } from 'react'
-import { View, Text, TextInput, SafeAreaView } from 'react-native'
+import { View, Text, TextInput, SafeAreaView,Alert } from 'react-native'
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GOOGLE_API_KEY } from '../../config';
 import PalaceRow from './PalaceRow';
 
 import styles from './styles';
@@ -28,28 +29,30 @@ const workPalace = {
 }
 
 
+
 export default function DestinationSearch() {
-  const [originPlace, setOriginPalace] = useState<any>(null);
-  const [destinationPalace, setDestinationPalace] = useState<any>(null);
+  const [originPlace, setOriginPlace] = useState<any>(null);
+  const [destinationPlace, setDestinationPlace] = useState<any>(null);
+
+  const navigation = useNavigation();
+
 
 
   const checkNavigation = () => {
-    if (originPlace && destinationPalace) {
+    if (originPlace && destinationPlace) {
       navigation.navigate('SearchResults',{
         originPlace,
-        destinationPalace
+        destinationPlace
       })
-      //console.warn('Ok to navigate');    
     }
   }
 
   useEffect(() => {
     checkNavigation();
-  }, [originPlace, destinationPalace]);
+  }, [originPlace, destinationPlace]);
 
-  const navigation = useNavigation();
 
-  const currentLoc = useRef(null);
+
 
 
   return (
@@ -62,28 +65,19 @@ export default function DestinationSearch() {
             listView: {...styles.listView,top:150},
             separator: styles.separator
           }}
-          
           currentLocation={true}
           currentLocationLabel='Current location'
           suppressDefaultStyles
           placeholder='From'
           fetchDetails
           enablePoweredByContainer={false}
-          onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            //setOriginPalace({data,details}) need api key
-            setOriginPalace({data,details})
-            
-            //console.log(data, details);
-            console.log('set from');
-
-            
+          onPress={(data, details = null) => {   
+            setOriginPlace({data,details})
           }}
           predefinedPlaces={[homePalace, workPalace]}
-
-          renderDescription={(data) => data.description || ''}
+          renderDescription={(data: any) => data.description || data.vicinity}
           query={{
-            key: 'YOUR API KEY',
+            key: GOOGLE_API_KEY,
             language: 'en',
           }}
           renderRow={(data) => <PalaceRow data={data} />}
@@ -101,18 +95,13 @@ export default function DestinationSearch() {
           fetchDetails
           enablePoweredByContainer={false}
           onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            setDestinationPalace({ data, details })
-            //console.log(data, details);
-            console.log('set to');
-
+            setDestinationPlace({ data, details })
           }}
           query={{
-            key: 'YOUR API KEY',
+            key: GOOGLE_API_KEY,
             language: 'en',
           }}
-          predefinedPlaces={[homePalace, workPalace]}
-          renderRow={(data) => <PalaceRow data={data} />}
+          renderRow={( data) => <PalaceRow data={data}/>}
         />
 
         <View style={styles.circle}>

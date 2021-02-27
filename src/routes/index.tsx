@@ -15,7 +15,6 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator 
-      openByDefault
       drawerContent={props => (
         <CustomDrawer {...props}/>
       )}

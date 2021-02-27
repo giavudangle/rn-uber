@@ -7,17 +7,22 @@ import UberTypes from '../../components/UberTypes'
 
 import styles  from './styles'
 
+type CoordinateTypes = {
+  latitude:number,
+  longitude:number
+}
 
 export default function SearchResults() {
   const route =useRoute();
+  const {originPlace,destinationPlace} : any  = route.params;
+
 
   
-  console.log(route);
   
   return (
     <View style={styles.container}>
       <View style={styles.mapContainerFlex}>
-        <RouteMap/>
+        <RouteMap origin={originPlace} destination={destinationPlace} />
       </View>
       <View style={styles.uberTypesContainer}>
         <UberTypes/>
