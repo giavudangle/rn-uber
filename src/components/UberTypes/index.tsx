@@ -4,12 +4,7 @@ import styles from './styles'
 import UberTypeList from '../UberTypeList'
 import HomeMap from '../HomeMap'
 
-type UberTypesProps = {
-  id:string,
-  type: string,
-  price: number,
-  duration: number,
-}
+
 const UberTypesData = [ 
   {
     id: '0',
@@ -30,28 +25,37 @@ const UberTypesData = [
     duration: 27,
   },
 ]
-  
+
+type UberTypeProps = {
+  typeState:any,
+  onSubmit: () => any
+}
 
 
-export default function UberTypes({type}:UberTypesProps|any) {
-  const confirmBooking = () => {
-    console.warn('press');
-  }
+
+export default function UberTypes({typeState,onSubmit}:UberTypeProps) {
+
+  const [selectedType,setSelectedType] = typeState;
+
+ 
 
   return (
     <>
         {
-        UberTypesData.map(type => 
-          <UberTypeList 
-          key={type.id}
-          id={type.id}
-          price={type.price}
-          duration={type.duration}
-          type={type.type}/>)
+        UberTypesData.map(car => 
+          <UberTypeList
+            key={car.id}
+            id={car.id}
+            type={car.type}
+            duration={car.duration}
+            price={car.price}
+            isSelected={car.type ===  selectedType}
+            onSelect={() => setSelectedType(car.type)}
+          />)
         }
 
         <Pressable 
-        onPress={confirmBooking} 
+        onPress={onSubmit} 
         style={{
           width:'80%',
           backgroundColor:'black',
